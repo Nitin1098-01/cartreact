@@ -1,0 +1,269 @@
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+button {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #de36f4;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+  width: 50%;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn,
+  .signupbtn {
+    width: 100%;
+  }
+}
+
+.general {
+  background-color: rgba(228, 222, 222, 0.801);
+}
+
+.topLayer {
+  width: 100%;
+  display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
+  flex: 1;
+  flex-direction: row;
+  border: 2px solid black;
+}
+
+.component {
+  width: 300px;
+  margin-left: 15%;
+  margin-top: 20px;
+  border: 2px solid red;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  /* width: 70%; */
+}
+
+.buttonDisplay {
+  flex: 2;
+  padding-left: 50%;
+  display: flex;
+  /* border: 2px solid orange; */
+}
+
+#fav-btn {
+  background-color: red;
+}
+
+#open-btn {
+  background-color: green;
+}
+
+.image {
+  width: 100%;
+  outline: 2px solid blue;
+}
+
+.layertop {
+  display: flex;
+}
+
+.fav {
+  margin-left: 80%;
+  align-items: end;
+  /* outline: 2px solid red; */
+}
+
+#favbtn {
+  background-color: transparent;
+}
+
+.layerbottom {
+  display: flex;
+}
+
+#addcart-btn {
+  width: 30%;
+  margin-left: 70%;
+}
+
+.layermiddle,
+.price,
+.title,
+.layertop,
+.layerbottom {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.error-text {
+  /* margin-left: 75%; */
+  float: right;
+  color: red;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.customize {
+  display: flex;
+  margin-top: 10px;
+}
+
+#add {
+  background-color: red;
+}
+
+#sub {
+  background-color: green;
+}
+
+#text {
+  width: 80%;
+}
+
+.Qty {
+  margin-top: 11px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.displayQty {
+  margin-top: 11px;
+  width: 70%;
+  margin-left: 30px;
+}
+
+#bill {
+  margin-top: 10px;
+}
+
+#payment {
+  background-color: red;
+  width: 20%;
+  margin: 0 auto;
+}
+
+#back {
+  background-color: yellowgreen;
+  width: 20%;
+}
+
+/* .popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup\_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  border-radius: 20px;
+  background: white;
+} */
+
+/* .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(114, 86, 86);
+  color: rgb(252, 11, 11);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+ 
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltiptext:hover {
+  visibility: visible;
+} */
+
+/* .MyCardElements {
+  height: 40px;
+  padding: 10px 12px;
+  width: 100%;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.MyCardElements--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.MyCardElements--invalid {
+  border-color: #fa755a;
+}
+
+.MyCardElements--webkit-autofill {
+  background-color: #fefde5 !important;
+} */
