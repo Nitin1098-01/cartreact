@@ -34,7 +34,9 @@ class FavoriteComponent extends React.Component {
             ></img> */}
           </div>
         </div>
+
         <div class="title"> TITLE :{this.props.productname}</div>
+
         <div class="layermiddle"> DESCRIPTION :{this.props.description} </div>
 
         <div class="price"> PRICE:{this.props.price}</div>
