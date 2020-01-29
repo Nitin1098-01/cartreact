@@ -8,16 +8,19 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      count: 0
     };
   }
 
   componentDidMount = async () => {
     const result = await axios.get("http://localhost:4000/viewproduct");
+    //const cartresult = await axios.get("http://localhost:4000/viewcart");
     console.log("The result is ", result.data.data);
-
+    //console.log("Count is", cartresult.data.data.length);
     this.setState({
       products: result.data.data
+      //  count: cartresult.data.data.length
     });
   };
 
@@ -41,7 +44,7 @@ class Homepage extends React.Component {
               OPEN ALL
             </button> */}
             <button onClick={this.openCart} type="button" id="cart-btn">
-              YOUR CART
+              YOUR CART {this.state.count}
             </button>
             <button onClick={this.openFavorites} type="button" id="fav-btn">
               YOUR FAVORITES
