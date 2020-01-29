@@ -17,6 +17,12 @@ import MyStoreCheckout from "./MyStoreCheckout";
 import CheckoutForm from "./CheckoutForm";
 import CheckoutPage from "./CheckoutPage";
 import Checkoutnew from "./Checkoutnew";
+import Seller from "./Seller";
+import Form from "./Form";
+import ViewNewProducts from "./ViewNewProducts";
+import Admin from "./Admin";
+import CustomerPage from "./CustomerPage";
+import SellerPage from "./SellerPage";
 
 function authenticator() {
   let usrDetails = localStorage.getItem("user");
@@ -24,6 +30,26 @@ function authenticator() {
     return false;
   } else {
     return true;
+  }
+}
+
+function userTypeAuthenticator() {
+  let userType = JSON.parse(localStorage.getItem("user"));
+  userType = userType.roleid;
+  if (userType === 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function adminAuthenticator() {
+  let userType = JSON.parse(localStorage.getItem("user"));
+  userType = userType.roleid;
+  if (userType === 2) {
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -58,6 +84,48 @@ function App() {
           path="/checkout"
           component={Checkoutnew}
           authenticated={authenticator}
+          fallbackRoute={"/Signup"}
+        />
+
+        <PrivateRoute
+          path="/seller"
+          component={Seller}
+          authenticated={userTypeAuthenticator}
+          fallbackRoute={"/LoginPage"}
+        />
+
+        <PrivateRoute
+          path="/form"
+          component={Form}
+          authenticated={userTypeAuthenticator}
+          fallbackRoute={"/LoginPage"}
+        />
+
+        <PrivateRoute
+          path="/viewnewproducts"
+          component={ViewNewProducts}
+          authenticated={userTypeAuthenticator}
+          fallbackRoute={"/LoginPage"}
+        />
+
+        <PrivateRoute
+          path="/admin"
+          component={Admin}
+          authenticated={adminAuthenticator}
+          fallbackRoute={"/Signup"}
+        />
+
+        <PrivateRoute
+          path="/customer"
+          component={CustomerPage}
+          authenticated={adminAuthenticator}
+          fallbackRoute={"/Signup"}
+        />
+
+        <PrivateRoute
+          path="/sellerpage"
+          component={SellerPage}
+          authenticated={adminAuthenticator}
           fallbackRoute={"/Signup"}
         />
       </Router>

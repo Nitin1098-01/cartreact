@@ -267,3 +267,33 @@ button {
 .MyCardElements--webkit-autofill {
   background-color: #fefde5 !important;
 } */
+
+.empty {
+  margin-top: 8%;
+}
+
+.emptyfield {
+  margin-top: 3%;
+}
+
+#insertbtn,
+#viewBillbtn {
+  background-color: green;
+  width: 20%;
+  margin-left: 20%;
+}
+
+#prdtbtn,
+#sellerbtn,
+#custbtn {
+  background-color: red;
+  width: 20%;
+  margin-left: 20%;
+}
+
+.text {
+  margin-left: 35%;
+  font-family: sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+}

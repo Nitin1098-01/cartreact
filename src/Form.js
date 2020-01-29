@@ -27,25 +27,27 @@ class Form extends React.Component {
       alert("Please include an image");
       return;
     }
-    if (!this.state.productName) {
+    if (!this.state.prdtname) {
       alert("Please enter the product name");
       return;
     }
-    if (!this.state.productDesc) {
+    if (!this.state.prdtdesc) {
       alert("Please enter the Product Description");
       return;
     }
-    if (!this.state.productQuantity) {
+    if (!this.state.prdtqty) {
       alert("Please enter the Product Quantity");
       return;
     }
-    if (!this.state.productPrice) {
+    if (!this.state.prdtprice) {
       alert("Please enter the price of the Product");
       return;
     }
 
     alert("Submitted Successfully");
-    this.props.history.push("/LoginPage");
+    console.log(this.state);
+
+    this.props.history.push("/Seller");
     console.log(this.state);
 
     let token = JSON.parse(localStorage.getItem("token"));

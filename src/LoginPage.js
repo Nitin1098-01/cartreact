@@ -22,7 +22,18 @@ class Loginpage extends React.Component {
     if (response.data.success) {
       localStorage.setItem("token", JSON.stringify(response.data.token));
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      this.props.history.push("/");
+
+      let userType = JSON.parse(localStorage.getItem("user"));
+      userType = userType.roleid;
+      if (userType === 1) {
+        this.props.history.push("/Seller");
+      } else if (userType === 2) {
+        this.props.history.push("/Admin");
+      } else {
+        this.props.history.push("/");
+      }
+
+      // this.props.history.push("/");
     }
   };
 

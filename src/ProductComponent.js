@@ -64,7 +64,8 @@ class ProductComponent extends React.Component {
       <div class="component">
         <div class="image">
           <img
-            src={`data:image/png;base64, ${this.props.image}`}
+            //src={`data:image/png;base64, ${this.props.image}`}
+            src={this.props.image}
             alt=""
             style={{ width: "100%" }}
           ></img>

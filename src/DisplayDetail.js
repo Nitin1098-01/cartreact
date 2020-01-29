@@ -3,14 +3,10 @@ import axios from "axios";
 
 import "./css/style.css";
 
-class FavoriteComponent extends React.Component {
+class DisplayDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // user_id: "",
-      // product_id: ""
-      isFavorite: true
-    };
+    this.state = {};
   }
 
   render() {
@@ -24,20 +20,9 @@ class FavoriteComponent extends React.Component {
             style={{ width: "100%" }}
           ></img>
         </div>
-
-        <div class="layertop">
-          <div class="favs">
-            <p>Recently added to favorite</p>
-            {/* <img
-              src={require("./assests/favorite_bold.svg")}
-              alt=""
-              width="20px"
-            ></img> */}
-          </div>
-        </div>
-
+        <div class="empty"></div>
+        <div class="layertop"></div>
         <div class="title"> TITLE :{this.props.productname}</div>
-
         <div class="layermiddle"> DESCRIPTION :{this.props.description} </div>
 
         <div class="price"> PRICE:{this.props.price}</div>
@@ -46,4 +31,4 @@ class FavoriteComponent extends React.Component {
   }
 }
 
-export default FavoriteComponent;
+export default DisplayDetail;

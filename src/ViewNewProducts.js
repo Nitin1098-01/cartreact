@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import "./css/style.css";
-import ProductComponent from "./ProductComponent";
+import DisplayDetail from "./DisplayDetail";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -21,12 +21,8 @@ class Homepage extends React.Component {
     });
   };
 
-  openFavorites = async () => {
-    this.props.history.push("/Viewfavorite");
-  };
-
-  openCart = async () => {
-    this.props.history.push("/Viewcart");
+  back = () => {
+    this.props.history.push("/Seller");
   };
 
   render() {
@@ -34,25 +30,17 @@ class Homepage extends React.Component {
       <div class="general">
         <div class="topLayer">
           <div class="topText">
-            <h2> SHOPPING SITE </h2>
+            <h2> NEWLY ADDED PRODUCT DETAILS </h2>
           </div>
-          <div class="buttonDisplay">
-            {/* <button onClick={this.openAll} type="button" id="open-btn">
-              OPEN ALL
-            </button> */}
-            <button onClick={this.openCart} type="button" id="cart-btn">
-              YOUR CART
-            </button>
-            <button onClick={this.openFavorites} type="button" id="fav-btn">
-              YOUR FAVORITES
-            </button>
-          </div>
+          <button onClick={this.back} id="back">
+            BACK
+          </button>
         </div>
         <div class="topLayer">
           <div className={"flex-container"}>
             {this.state.products.map(product => {
               return (
-                <ProductComponent
+                <DisplayDetail
                   key={product.productid}
                   productname={product.productname}
                   image={product.image}

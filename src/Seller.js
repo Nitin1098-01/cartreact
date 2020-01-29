@@ -7,7 +7,7 @@ class Seller extends React.Component {
     this.props.history.push("/Form");
   };
   display = () => {
-    this.props.history.push("/DisplayDetail");
+    this.props.history.push("/ViewNewProducts");
   };
   render() {
     return (

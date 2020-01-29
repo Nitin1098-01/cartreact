@@ -23,7 +23,8 @@ class Signup extends React.Component {
       this.state.validation.usr ||
       this.state.validation.number ||
       this.state.validation.email ||
-      this.state.validation.pwd
+      this.state.validation.pwd ||
+      this.state.validation.type
     ) {
       alert("There are validation errors, please fix them");
       return;
@@ -32,7 +33,8 @@ class Signup extends React.Component {
       username: this.state.usr,
       password: this.state.pwd,
       number: this.state.number,
-      email: this.state.email
+      email: this.state.email,
+      roleid: this.state.type
     });
     // console.log(response);
     alert(response.data.message);
@@ -99,7 +101,12 @@ class Signup extends React.Component {
           validationErrorText = "*Password is too small";
           break;
         }
-
+      case "type":
+        if (["0", "1", "2"].includes(value) === false) {
+          validationErrorText = "Please select a user type";
+          break;
+        }
+        break;
       default:
         throw TypeError("*The field name is not specified");
     }
@@ -221,7 +228,27 @@ class Signup extends React.Component {
           By creating an account you agree to our{" "}
           <a href="#">Terms & Privacy</a>.
         </p> */}
+        {/* <b>User Type</b> */}
+        <div class="emptyfield"></div>
+        <label
+          for="type"
+          href="#"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Choose any of the user type"
+        >
+          <b>User Type</b>
+        </label>
+        <div>
+          <select name="type" onChange={this.onSChange}>
+            <option value="">Select</option>
+            <option value="0">Customer</option>
+            <option value="1">Seller</option>
+            <option value="2">Admin</option>
+          </select>
+        </div>
 
+        <div class="emptyfield"></div>
         <div class="clearfix">
           {/* <button type="button" class="cancelbtn">
             CANCEL
@@ -230,6 +257,7 @@ class Signup extends React.Component {
             SUBMIT
           </button>
         </div>
+
         <a href="/Loginpage"> Already has an account... </a>
       </div>
       // </div>
