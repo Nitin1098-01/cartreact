@@ -1,9 +1,12 @@
 import React from "react";
-import { Component } from "react";
+//import { Component } from "react";
+import { Access } from "react";
+
 import { Route, Redirect } from "react-router-dom";
 
 export const PrivateRoute = ({
-  component: Component,
+  //component: Component,
+  component: Access,
   authenticated,
   fallbackRoute,
   ...rest
@@ -13,7 +16,8 @@ export const PrivateRoute = ({
       {...rest}
       render={props =>
         authenticated() === true ? (
-          <Component {...props} />
+          //<Component {...props} />
+          <Access {...props} />
         ) : (
           <Redirect
             to={{ pathname: fallbackRoute, state: { from: props.location } }}

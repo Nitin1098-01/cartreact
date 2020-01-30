@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./css/style.css";
+import { withRouter } from "react-router-dom";
 
 class Seller extends React.Component {
   insert = () => {
@@ -9,9 +10,18 @@ class Seller extends React.Component {
   display = () => {
     this.props.history.push("/ViewNewProducts");
   };
+  logout = () => {
+    localStorage.clear();
+    this.props.history.push("/Signup");
+  };
   render() {
     return (
       <div class="container">
+        <div class="logout">
+          <a href="" onClick={this.logout}>
+            Logout
+          </a>
+        </div>
         <div class="empty"></div>
         <div class="text">
           <p>Welcome Seller</p>
@@ -32,4 +42,4 @@ class Seller extends React.Component {
   }
 }
 
-export default Seller;
+export default withRouter(Seller);

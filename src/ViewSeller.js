@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 import "./css/style.css";
 
@@ -22,4 +23,4 @@ class ViewSeller extends React.Component {
   }
 }
 
-export default ViewSeller;
+export default withRouter(ViewSeller);

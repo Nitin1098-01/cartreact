@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import { withRouter } from "react-router-dom";
 import "./css/style.css";
 import ViewSeller from "./ViewSeller";
 
@@ -22,7 +22,7 @@ class SellerPage extends React.Component {
   };
 
   back = () => {
-    this.props.history.push("/Admin");
+    this.props.history.push("/admin");
   };
 
   render() {
@@ -56,4 +56,4 @@ class SellerPage extends React.Component {
   }
 }
 
-export default SellerPage;
+export default withRouter(SellerPage);

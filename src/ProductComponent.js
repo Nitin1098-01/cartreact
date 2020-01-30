@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import "./css/style.css";
+import { withRouter } from "react-router-dom";
 
 class ProductComponent extends React.Component {
   constructor(props) {
@@ -109,4 +110,4 @@ class ProductComponent extends React.Component {
   }
 }
 
-export default ProductComponent;
+export default withRouter(ProductComponent);

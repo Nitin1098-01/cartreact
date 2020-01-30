@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import { withRouter } from "react-router-dom";
+
 import "./css/style.css";
 import ProductComponent from "./ProductComponent";
 
@@ -43,6 +45,7 @@ class Homepage extends React.Component {
             {/* <button onClick={this.openAll} type="button" id="open-btn">
               OPEN ALL
             </button> */}
+
             <button onClick={this.openCart} type="button" id="cart-btn">
               YOUR CART {this.state.count}
             </button>
@@ -73,4 +76,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+export default withRouter(Homepage);

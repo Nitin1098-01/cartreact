@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./css/style.css";
+import { withRouter } from "react-router-dom";
 
 class Form extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class Form extends React.Component {
     alert("Submitted Successfully");
     console.log(this.state);
 
-    this.props.history.push("/Seller");
+    this.props.history.push("/seller");
     console.log(this.state);
 
     let token = JSON.parse(localStorage.getItem("token"));
@@ -97,7 +98,7 @@ class Form extends React.Component {
     }
   };
   back = () => {
-    this.props.history.push("/Seller");
+    this.props.history.push("/seller");
   };
 
   render() {
@@ -173,4 +174,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default withRouter(Form);

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import { withRouter } from "react-router-dom";
 import "./css/style.css";
 import CartComponent from "./CartComponent";
 
@@ -115,4 +115,4 @@ class Viewcart extends React.Component {
   }
 }
 
-export default Viewcart;
+export default withRouter(Viewcart);

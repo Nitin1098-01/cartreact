@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./css/style.css";
 import FavoriteComponent from "./FavoriteComponent";
+import { withRouter } from "react-router-dom";
 
 class Viewfavorite extends React.Component {
   componentDidMount = async () => {
@@ -83,4 +84,4 @@ class Viewfavorite extends React.Component {
   }
 }
 
-export default Viewfavorite;
+export default withRouter(Viewfavorite);

@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./css/style.css";
 import DisplayDetail from "./DisplayDetail";
+import { withRouter } from "react-router-dom";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class Homepage extends React.Component {
   };
 
   back = () => {
-    this.props.history.push("/Seller");
+    this.props.history.push("/seller");
   };
 
   render() {
@@ -58,4 +59,4 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+export default withRouter(Homepage);

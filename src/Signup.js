@@ -102,7 +102,7 @@ class Signup extends React.Component {
           break;
         }
       case "type":
-        if (["0", "1", "2"].includes(value) === false) {
+        if (["0", "1", "2", "3"].includes(value) === false) {
           validationErrorText = "Please select a user type";
           break;
         }
@@ -243,8 +243,9 @@ class Signup extends React.Component {
           <select name="type" onChange={this.onSChange}>
             <option value="">Select</option>
             <option value="0">Customer</option>
-            <option value="1">Seller</option>
-            <option value="2">Admin</option>
+            <option value="1">SellerVendor</option>
+            <option value="2">SellerAdmin</option>
+            <option value="3">Admin</option>
           </select>
         </div>
 

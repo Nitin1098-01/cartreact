@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import { withRouter } from "react-router-dom";
 import "./css/style.css";
 import ViewCustomer from "./ViewCustomer";
 
@@ -61,4 +61,4 @@ class CustomerPage extends React.Component {
   }
 }
 
-export default CustomerPage;
+export default withRouter(CustomerPage);
