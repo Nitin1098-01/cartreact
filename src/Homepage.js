@@ -15,6 +15,33 @@ class Homepage extends React.Component {
     };
   }
 
+  // fetchProducts = async () => {
+  //   const result = await axios.get("http://localhost:4000/viewproduct");
+  //   console.log("The result is ", result.data);
+
+  //   this.setState({
+  //     products: result.data.data
+  //   });
+  // };
+
+  // componentDidMount = async () => {
+  //   this.fetchProducts();
+  // };
+
+  // delete = async id => {
+  //   let token = JSON.parse(localStorage.getItem("token"));
+  //   let product_id = id;
+  //   let response = await axios.post("http://localhost:4000/deletefav", {
+  //     product_id: product_id,
+  //     test: "this should be in it",
+  //     headers: {
+  //       authentication: token
+  //     }
+  //   });
+  //   this.fetchProducts();
+  //   console.log(response);
+  // };
+
   componentDidMount = async () => {
     const result = await axios.get("http://localhost:4000/viewproduct");
     //const cartresult = await axios.get("http://localhost:4000/viewcart");

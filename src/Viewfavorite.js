@@ -6,33 +6,66 @@ import FavoriteComponent from "./FavoriteComponent";
 import { withRouter } from "react-router-dom";
 
 class Viewfavorite extends React.Component {
-  componentDidMount = async () => {
-    let token = JSON.parse(localStorage.getItem("token"));
-    let d = {
-      // user_id: user.user_id,
-      product_id: this.props.product_id
-    };
-    console.log(d);
-    let response = await axios.get(
-      "http://localhost:4000/viewfavorite",
+  // componentDidMount = async () => {
+  //   let token = JSON.parse(localStorage.getItem("token"));
+  //   let d = {
+  //     // user_id: user.user_id,
+  //     product_id: this.props.product_id
+  //   };
+  //   console.log(d);
+  //   let response = await axios.get(
+  //     "http://localhost:4000/viewfavorite",
 
-      {
-        headers: {
-          authorization: token
-        }
-      }
-    );
-    console.log(response);
-    this.setState({
-      favorites: response.data.data
-    });
-  };
+  //     {
+  //       headers: {
+  //         authorization: token
+  //       }
+  //     }
+  //   );
+  //   console.log(response);
+  //   this.setState({
+  //     favorites: response.data.data
+  //   });
+  // };
   constructor(props) {
     super(props);
     this.state = {
       favorites: []
     };
   }
+
+  fetchProducts = async () => {
+    let token = JSON.parse(localStorage.getItem("token"));
+    const result = await axios.get("http://localhost:4000/viewfavorite", {
+      headers: {
+        authorization: token
+      }
+    });
+    console.log("The fav is ", result.data);
+
+    this.setState({
+      favorites: result.data.data
+    });
+  };
+
+  componentDidMount = async () => {
+    this.fetchProducts();
+  };
+
+  delete = async id => {
+    let token = JSON.parse(localStorage.getItem("token"));
+    let product_id = id;
+    let response = await axios.post("http://localhost:4000/deletefav", {
+      product_id: product_id,
+      test: "this should be in it",
+      headers: {
+        authentication: token
+      }
+    });
+    this.fetchProducts();
+    console.log(response);
+  };
+
   back = () => {
     this.props.history.push("/");
   };
@@ -73,7 +106,8 @@ class Viewfavorite extends React.Component {
                   description={product.description}
                   quantity={product.quantity}
                   price={product.price}
-                  product_id={product.productid}
+                  productid={product.productid}
+                  deleteHandle={this.delete}
                 />
               );
             })}

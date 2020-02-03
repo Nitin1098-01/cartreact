@@ -14,6 +14,10 @@ class FavoriteComponent extends React.Component {
     };
   }
 
+  onDeleteClicked = () => {
+    this.props.deleteHandle(this.props.productid);
+  };
+
   render() {
     return (
       <div class="component">
@@ -24,6 +28,12 @@ class FavoriteComponent extends React.Component {
             alt=""
             style={{ width: "100%" }}
           ></img>
+        </div>
+
+        <div class="delete">
+          <button onClick={this.onDeleteClicked} id="deletebtn">
+            <img src={require("./assests/delete.svg")} alt=""></img>
+          </button>
         </div>
 
         <div class="layertop">
