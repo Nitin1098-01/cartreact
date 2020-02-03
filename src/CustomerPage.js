@@ -12,7 +12,7 @@ class CustomerPage extends React.Component {
     };
   }
 
-  componentDidMount = async () => {
+  fetchUsers = async () => {
     const result = await axios.get("http://localhost:4000/customer");
     console.log("The result is ", result.data);
 
@@ -21,8 +21,26 @@ class CustomerPage extends React.Component {
     });
   };
 
+  componentDidMount = async () => {
+    this.fetchUsers();
+  };
+
   back = () => {
     this.props.history.push("/Admin");
+  };
+
+  delete = async id => {
+    let token = JSON.parse(localStorage.getItem("token"));
+    let userid = id;
+    let response = await axios.post("http://localhost:4000/delete", {
+      userid: userid,
+      test: "this should be in it",
+      headers: {
+        authentication: token
+      }
+    });
+    this.fetchUsers();
+    console.log(response);
   };
 
   render() {
@@ -51,6 +69,8 @@ class CustomerPage extends React.Component {
                   username={users.username}
                   phone={users.phone}
                   email={users.email}
+                  id={users.userid}
+                  deleteHandle={this.delete}
                 />
               );
             })}

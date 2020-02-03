@@ -10,13 +10,17 @@ import {
 const createOptions = () => {
   return {
     style: {
+      width: "700px",
+      hidden: "zip",
       base: {
         fontSize: "16px",
         color: "#424770",
         fontFamily: "Open Sans, sans-serif",
         letterSpacing: "0.025em",
+
         "::placeholder": {
-          color: "#aab7c4"
+          color: "#aab7c4",
+          hidden: "zip"
         }
       },
       invalid: {
@@ -41,6 +45,8 @@ class _CardForm extends Component {
     evt.preventDefault();
     if (this.props.stripe) {
       this.props.stripe.createToken().then(this.props.handleResult);
+      //alert("Payment successful");
+      console.log(this.props.stripe);
     } else {
       console.log("Stripe.js hasn't loaded yet.");
     }

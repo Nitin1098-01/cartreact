@@ -12,6 +12,7 @@ import CustomerPage from "./CustomerPage";
 import SellerPage from "./SellerPage";
 import Viewcart from "./Viewcart";
 import Viewfavorite from "./Viewfavorite";
+import Checkoutnew from "./Checkoutnew";
 
 // function sellerAuthenticator() {
 //   let userType = JSON.parse(localStorage.getItem("user"));
@@ -65,6 +66,8 @@ function Access(props) {
     return <Viewcart />;
   } else if (userType === 0 && path === "/Viewfavorite") {
     return <Viewfavorite />;
+  } else if (userType === 0 && path === "/checkout") {
+    return <Checkoutnew />;
   } else if ((userType === 1 || userType === 2) && path === "/seller") {
     return <Seller />;
   } else if (

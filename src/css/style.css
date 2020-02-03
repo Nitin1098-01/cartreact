@@ -304,3 +304,11 @@ button {
   font-weight: bold;
   font-size: 18px;
 }
+
+.delete {
+  float: right;
+}
+
+#deletebtn {
+  background-color: transparent;
+}
