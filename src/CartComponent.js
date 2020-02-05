@@ -27,7 +27,7 @@ class CartComponent extends React.Component {
     this.props.onPriceChange(this.props.price);
   };
   DecreaseItem = () => {
-    if (this.state.clicks == 0) {
+    if (this.state.clicks === 0) {
       //this.setState({ clicks: this.state.clicks });
       this.setState({ showbill: false });
     } else {
