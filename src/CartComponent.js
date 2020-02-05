@@ -16,6 +16,10 @@ class CartComponent extends React.Component {
     };
   }
 
+  onDeleteClicked = () => {
+    this.props.deleteHandle(this.props.product_id);
+  };
+
   IncrementItem = () => {
     this.setState({ clicks: this.state.clicks + 1 });
     //this.setState({ totalprice: this.state.clicks * this.props.price });
@@ -51,6 +55,12 @@ class CartComponent extends React.Component {
             alt=""
             style={{ width: "100%" }}
           ></img>
+        </div>
+
+        <div class="delete">
+          <button onClick={this.onDeleteClicked} id="deletebtn">
+            <img src={require("./assests/delete.svg")} alt=""></img>
+          </button>
         </div>
 
         <div class="layertop">

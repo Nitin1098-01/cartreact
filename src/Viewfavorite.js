@@ -107,6 +107,7 @@ class Viewfavorite extends React.Component {
                   quantity={product.quantity}
                   price={product.price}
                   productid={product.productid}
+                  product_id={product.productid}
                   deleteHandle={this.delete}
                 />
               );

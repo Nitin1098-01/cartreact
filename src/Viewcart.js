@@ -5,27 +5,27 @@ import "./css/style.css";
 import CartComponent from "./CartComponent";
 
 class Viewcart extends React.Component {
-  componentDidMount = async () => {
-    let token = JSON.parse(localStorage.getItem("token"));
-    let d = {
-      // user_id: user.user_id,
-      product_id: this.props.product_id
-    };
-    console.log(d);
-    let response = await axios.get(
-      "http://localhost:4000/viewcart",
+  // componentDidMount = async () => {
+  //   let token = JSON.parse(localStorage.getItem("token"));
+  //   let d = {
+  //     // user_id: user.user_id,
+  //     product_id: this.props.product_id
+  //   };
+  //   console.log(d);
+  //   let response = await axios.get(
+  //     "http://localhost:4000/viewcart",
 
-      {
-        headers: {
-          authorization: token
-        }
-      }
-    );
-    console.log(response);
-    this.setState({
-      cart: response.data.data
-    });
-  };
+  //     {
+  //       headers: {
+  //         authorization: token
+  //       }
+  //     }
+  //   );
+  //   console.log(response);
+  //   this.setState({
+  //     cart: response.data.data
+  //   });
+  // };
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +33,38 @@ class Viewcart extends React.Component {
       totalprice: 0
     };
   }
+
+  fetchProducts = async () => {
+    let token = JSON.parse(localStorage.getItem("token"));
+    const result = await axios.get("http://localhost:4000/viewcart", {
+      headers: {
+        authorization: token
+      }
+    });
+    console.log("The cart is ", result.data);
+
+    this.setState({
+      cart: result.data.data
+    });
+  };
+
+  componentDidMount = async () => {
+    this.fetchProducts();
+  };
+
+  delete = async id => {
+    let token = JSON.parse(localStorage.getItem("token"));
+    let product_id = id;
+    let response = await axios.post("http://localhost:4000/deletecart", {
+      product_id: product_id,
+      test: "this should be in it",
+      headers: {
+        authentication: token
+      }
+    });
+    this.fetchProducts();
+    console.log(response);
+  };
 
   back = () => {
     this.props.history.push("/");
@@ -105,6 +137,7 @@ class Viewcart extends React.Component {
                   quantity={product.quantity}
                   price={product.price}
                   product_id={product.productid}
+                  deleteHandle={this.delete}
                 />
               );
             })}

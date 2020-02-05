@@ -33,6 +33,7 @@ class ProductComponent extends React.Component {
       }
     );
     console.log(response);
+    alert("Added to cart");
   };
 
   onUnFavoriteClicked = async () => {
@@ -58,6 +59,7 @@ class ProductComponent extends React.Component {
     this.setState({
       isFavorite: true
     });
+    alert("Added to favorite");
   };
 
   render() {
