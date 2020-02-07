@@ -50,6 +50,22 @@ class Viewfavorite extends React.Component {
 
   componentDidMount = async () => {
     this.fetchProducts();
+    this.startTimerIfNeeded();
+  };
+  startTimerIfNeeded = () => {
+    let time = localStorage.getItem("time");
+    try {
+      time = Number(time);
+    } catch (e) {
+      time = null;
+    }
+    if (time) {
+      setTimeout(() => {
+        alert("Timed out!");
+        localStorage.clear();
+        this.props.history.push("/LoginPage");
+      }, time * 1000);
+    }
   };
 
   delete = async id => {

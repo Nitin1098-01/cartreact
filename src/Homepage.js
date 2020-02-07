@@ -52,8 +52,24 @@ class Homepage extends React.Component {
       products: result.data.data
       //  count: cartresult.data.data.length
     });
+    this.startTimerIfNeeded();
   };
 
+  startTimerIfNeeded = () => {
+    let time = localStorage.getItem("time");
+    try {
+      time = Number(time);
+    } catch (e) {
+      time = null;
+    }
+    if (time) {
+      setTimeout(() => {
+        alert("Timed out!");
+        localStorage.clear();
+        this.props.history.push("/LoginPage");
+      }, time * 1000);
+    }
+  };
   openFavorites = async () => {
     this.props.history.push("/Viewfavorite");
   };
@@ -71,10 +87,6 @@ class Homepage extends React.Component {
       [ev.target.name]: ev.target.value
     });
   };
-
-  filterprice = () => {};
-
-  filterlikes = () => {};
 
   render() {
     const filteredList = this.state.products.filter(item => {
@@ -129,23 +141,9 @@ class Homepage extends React.Component {
               onChange={this.onSChange}
               placeholder="Enter a product"
             ></input>
-            <button onClick={this.onDeleteClicked} id="searchicon">
+            {/* <button onClick={this.onDeleteClicked} id="searchicon">
               <img src={require("./assests/delete.svg")} alt=""></img>
-            </button>
-
-            <button type="button" onClick={this.filterprice} id="filterprice">
-              Filter by Price
-            </button>
-            <div class="slidecounter">
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="50"
-                class="slider"
-                id="myRange"
-              ></input>
-            </div>
+            </button> */}
           </div>
         </div>
 

@@ -22,6 +22,7 @@ class Loginpage extends React.Component {
     if (response.data.success) {
       localStorage.setItem("token", JSON.stringify(response.data.token));
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("time", JSON.stringify(response.data.time));
 
       let userType = JSON.parse(localStorage.getItem("user"));
       userType = userType.roleid;

@@ -120,15 +120,20 @@ button {
   border: white;
 }
 
+.range {
+  margin-left: 40%;
+}
+
 .slidecontainer {
-  width: 100px; /* Width of the outside container */
+  width: 50px; /* Width of the outside container */
 }
 
 /* The slider itself */
 .slider {
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
-  width: 100%; /* Full-width */
+  margin-left: 25%;
+  width: 50%; /* Full-width */
   height: 25px; /* Specified height */
   background: #d3d3d3; /* Grey background */
   outline: none; /* Remove outline */
